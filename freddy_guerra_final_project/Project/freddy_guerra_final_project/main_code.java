@@ -10,7 +10,6 @@ public class main_code
 	
 	static ArrayList<teacher> teachers = new ArrayList<teacher>();
 
-	
 	public static int display_main_menu()
 	{//start...Main Menu
 		//Displays Main Menu
@@ -67,8 +66,6 @@ public class main_code
 		
 		while(add_menu_selection != 3);
 		
-		
-		
 	}
 	
 	public static int display_add_menu()
@@ -116,6 +113,8 @@ public class main_code
 			prof.set_phone_number(prompt_phone_number());
 			teachers.add(prof);
 			System.out.println("");
+			System.out.println(prof.get_first_name());
+			
 	}
 	
 	public static int display_remove_menu()
@@ -181,8 +180,7 @@ public class main_code
 	public static void display_info()
 	{
 		
-		teacher prof = new teacher();
-		System.out.print(prof.get_first_name());
+		System.out.println(teachers.get_first_name());
 	}
 	public static String prompt_first_name()
 	{

@@ -11,6 +11,10 @@ public class teacher
 	private String person_state;
 	private String person_zipcode;
 	private String phone_number;
+	private String grade_teaches;
+	private int birth_month;
+	private int birth_day;
+	private int birth_year;
 	
 	//sets
 	public void set_first_name(String fname)
@@ -46,6 +50,26 @@ public class teacher
 	public void set_phone_number(String pnumber)
 	{
 		phone_number = pnumber;
+	}
+	
+	public void set_grade_teaches(String gteach)
+	{
+		grade_teaches = gteach;
+	}
+	
+	public void set_birth_month(int bmonth)
+	{
+		birth_month = bmonth;
+	}
+	
+	public void set_birth_day(int bday)
+	{
+		birth_day = bday;
+	}
+	
+	public void set_birth_year(int byear)
+	{
+		birth_year = byear;
 	}
 	
 	//gets

@@ -110,6 +110,10 @@ public class main_code
 		prof.set_person_state(prompt_person_state());
 		prof.set_person_zipcode(prompt_person_zipcode());
 		prof.set_phone_number(prompt_phone_number());
+		prof.set_person_gender(prompt_person_gender());
+		prof.set_person_ethnicity(prompt_person_ethnicity());
+		prof.set_person_age(prompt_person_age());
+		prof.set_person_grade(prompt_person_grade());
 		teachers.add(prof);
 		System.out.println("");
 			
@@ -251,10 +255,11 @@ public class main_code
 			//Error Check Add Menu
 			update_teacher_field_selection = update_teacher_field_menu_error_check(update_teacher_field_selection);
 		
-		
 			switch(update_teacher_field_selection)
 			{
-			case 1 : prompt_first_name();
+			case 1 : 
+					teacher the_teacher = teachers.get(update_teacherid);
+					the_teacher.set_first_name(prompt_first_name());
 				break;
 			case 2 : prompt_last_name();
 				break;
@@ -270,9 +275,19 @@ public class main_code
 				break;
 			case 8 :
 				break;
+			case 9 :
+				break;
+			case 10 :
+				break;
+			case 11 :
+				break;
+			case 12 :
+				break;
 			}
+			
+			teachers.set(update_teacherid, null);
 		}
-		while(update_teacher_field_selection != 8);
+		while(update_teacher_field_selection != 12);
 		
 	}
 	
@@ -287,7 +302,11 @@ public class main_code
 		System.out.println("5. State");
 		System.out.println("6. Zip Code");
 		System.out.println("7. Phone Number");
-		System.out.println("8. Back to Update Menu");
+		System.out.println("8. Gender");
+		System.out.println("9. Ethnicity");
+		System.out.println("10. Age");
+		System.out.println("11. Grade");
+		System.out.println("12. Update a Different Teacher");
 		System.out.println("-------------------");
 		System.out.println("Enter Selection");
 		int update_teacher_field_selection = scan.nextInt();
@@ -301,7 +320,7 @@ public class main_code
 	
 	public static int update_teacher_field_menu_error_check(int x)
 	{//start...Update Menu Error Check
-		while (x < 1 || x > 8)
+		while (x < 1 || x > 12)
 		{
 			System.out.print("Error!!! Please enter a valid selection: ");
 			x = scan.nextInt();
@@ -310,23 +329,6 @@ public class main_code
 		
 		return x;
 	}//end...Update Menu Error Check
-	
-	public static void update_new_teacher(int update_teacherid)
-	{
-		
-		teacher prof = new teacher();
-		
-		prof.set_first_name(prompt_first_name());
-		prof.set_last_name(prompt_last_name());
-		prof.set_person_address(prompt_person_address());
-		prof.set_person_city(prompt_person_city());
-		prof.set_person_state(prompt_person_state());
-		prof.set_person_zipcode(prompt_person_zipcode());
-		prof.set_phone_number(prompt_phone_number());
-		teachers.add(prof);
-		System.out.println("");
-			
-	}
 	
 	public static void process_display_info()
 	{
@@ -396,6 +398,10 @@ public class main_code
 				System.out.println("Address: \t" + teachers.get(j).get_person_address());
 				System.out.println("\t\t" + teachers.get(j).get_person_city() + "," + teachers.get(j).get_person_state() + " " + teachers.get(j).get_person_zipcode());
 				System.out.println("Phone Number: \t" + teachers.get(j).get_phone_number());
+				System.out.println("Gender: \t" + teachers.get(j).get_person_gender());
+				System.out.println("Ethnicity: \t" + teachers.get(j).get_person_ethnicity());
+				System.out.println("Age: \t" + teachers.get(j).get_person_age());
+				System.out.println("Grade Teaches: \t" + teachers.get(j).get_person_grade());
 				System.out.println("Teacher ID#: \t" + j);
 				System.out.println("");
 			}	
@@ -426,14 +432,6 @@ public class main_code
 		return x;
 	}
 	
-	public static String prompt_phone_number()
-	{
-		String x;
-		System.out.print("Phone Number: ");
-		x = scan.nextLine();
-		return x;
-	}
-	
 	public static String prompt_person_city()
 	{
 		String x;
@@ -455,6 +453,47 @@ public class main_code
 		String x;
 		System.out.print("Zip Code: ");
 		x = scan.nextLine();
+		return x;
+	}
+	
+	public static String prompt_phone_number()
+	{
+		String x;
+		System.out.print("Phone Number: ");
+		x = scan.nextLine();
+		return x;
+	}
+	
+	public static String prompt_person_grade()
+	{
+		String x;
+		System.out.print("Grade: ");
+		x = scan.nextLine();
+		return x;
+	}
+	
+	public static String prompt_person_gender()
+	{
+		String x;
+		System.out.print("Gender: ");
+		x = scan.nextLine();
+		return x;
+	}
+	
+	public static String prompt_person_ethnicity()
+	{
+		String x;
+		System.out.print("Ethnicity: ");
+		x = scan.nextLine();
+		return x;
+	}
+	
+	public static int prompt_person_age()
+	{
+		int x;
+		System.out.print("Age: ");
+		x = scan.nextInt();
+		scan.nextLine();
 		return x;
 	}
 	

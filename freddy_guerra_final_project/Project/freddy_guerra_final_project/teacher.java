@@ -11,10 +11,10 @@ public class teacher
 	private String person_state;
 	private String person_zipcode;
 	private String phone_number;
-	private String grade_teaches;
-	private int birth_month;
-	private int birth_day;
-	private int birth_year;
+	private String person_grade;
+	private String person_gender;
+	private String person_ethnicity;
+	private int person_age;
 	
 	//sets
 	public void set_first_name(String fname)
@@ -52,24 +52,24 @@ public class teacher
 		phone_number = pnumber;
 	}
 	
-	public void set_grade_teaches(String gteach)
+	public void set_person_grade(String pgrade)
 	{
-		grade_teaches = gteach;
+		person_grade = pgrade;
 	}
 	
-	public void set_birth_month(int bmonth)
+	public void set_person_gender(String gender)
 	{
-		birth_month = bmonth;
+		person_gender = gender;
 	}
 	
-	public void set_birth_day(int bday)
+	public void set_person_ethnicity(String ethnicity)
 	{
-		birth_day = bday;
+		person_ethnicity = ethnicity;
 	}
 	
-	public void set_birth_year(int byear)
+	public void set_person_age(int age)
 	{
-		birth_year = byear;
+		person_age = age;
 	}
 	
 	//gets
@@ -102,29 +102,30 @@ public class teacher
 	{
 		return person_zipcode;
 	}
+	
 	public String get_phone_number()
 	{
 		return phone_number;
 	}
 	
-	public String get_grade_teaches()
+	public String get_person_grade()
 	{
-		return grade_teaches;
+		return person_grade;
 	}
 	
-	public int get_birth_month()
+	public String get_person_gender()
 	{
-		return birth_month;
+		return person_gender;
 	}
 	
-	public int get_birth_day()
+	public String get_person_ethnicity()
 	{
-		return birth_day;
+		return person_ethnicity;
 	}
 	
-	public int get_birth_year()
+	public int get_person_age()
 	{
-		return birth_year;
+		return person_age;
 	}
 	
 }

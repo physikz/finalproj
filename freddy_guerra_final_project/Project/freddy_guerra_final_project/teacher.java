@@ -106,4 +106,25 @@ public class teacher
 	{
 		return phone_number;
 	}
+	
+	public String get_grade_teaches()
+	{
+		return grade_teaches;
+	}
+	
+	public int get_birth_month()
+	{
+		return birth_month;
+	}
+	
+	public int get_birth_day()
+	{
+		return birth_day;
+	}
+	
+	public int get_birth_year()
+	{
+		return birth_year;
+	}
+	
 }

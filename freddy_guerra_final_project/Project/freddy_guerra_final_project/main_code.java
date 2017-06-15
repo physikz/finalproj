@@ -9,6 +9,7 @@ public class main_code
 	static Scanner scan = new Scanner(System.in);
 	
 	public static ArrayList<teacher> teachers = new ArrayList<teacher>();
+	public static ArrayList<student> students = new ArrayList<student>();
 
 	public static int display_main_menu()
 	{//start...Main Menu
@@ -56,7 +57,7 @@ public class main_code
 			{
 			case 1: add_teacher();
 				break;
-			case 2: System.out.print("Add Student");
+			case 2: add_student();
 				break;
 			case 3: 
 				break;
@@ -71,11 +72,11 @@ public class main_code
 	public static int display_add_menu()
 	{//start...Add Menu
 		//Display Add Menu
-		System.out.println("----------Adding Menu---------");
+		System.out.println("------------------Adding Menu----------------");
 		System.out.println("1. Add Teacher");
 		System.out.println("2. Add Student");
 		System.out.println("3. Back to Main Menu");
-		System.out.println("-------------------");
+		System.out.println("---------------------------------------------");
 		System.out.println("Enter Selection");
 		int add_selection = scan.nextInt();
 		scan.nextLine();
@@ -119,21 +120,41 @@ public class main_code
 			
 	}
 	
+	public static void add_student()
+	{
+		student stud = new student();
+		
+		stud.set_first_name(prompt_first_name());
+		stud.set_last_name(prompt_last_name());
+		stud.set_person_address(prompt_person_address());
+		stud.set_person_city(prompt_person_city());
+		stud.set_person_state(prompt_person_state());
+		stud.set_person_zipcode(prompt_person_zipcode());
+		stud.set_phone_number(prompt_phone_number());
+		stud.set_person_gender(prompt_person_gender());
+		stud.set_person_ethnicity(prompt_person_ethnicity());
+		stud.set_person_age(prompt_person_age());
+		stud.set_person_grade(prompt_person_grade());
+		stud.set_emergency_contact(prompt_emergency_contact());
+		students.add(stud);
+		System.out.println("");
+	}
+	
 	public static void process_remove_student_teacher()
 	{
 		int remove_menu_selection;
 		
 		do
 		{
-			//Display Add Menu
+			//Display Remove Menu
 			remove_menu_selection = display_remove_menu();
-			//Error Check Add Menu
+			//Error Check Remove Menu
 			remove_menu_selection = remove_menu_error_check(remove_menu_selection);
 			switch(remove_menu_selection)
 			{
 			case 1: remove_teacher();
 				break;
-			case 2: System.out.println("Remove Student");
+			case 2: remove_student();
 				break;
 			case 3: 
 				break;
@@ -147,11 +168,11 @@ public class main_code
 	public static int display_remove_menu()
 	{
 		//Display Remove Menu
-		System.out.println("----------Remove Menu---------");
+		System.out.println("-----------------Remove Menu-----------------");
 		System.out.println("1. Remove Teacher");
 		System.out.println("2. Remove Student");
 		System.out.println("3. Back to Main Menu");
-		System.out.println("-------------------");
+		System.out.println("---------------------------------------------");
 		System.out.println("Enter Selection");
 		int remove_selection = scan.nextInt();
 		scan.nextLine();
@@ -181,10 +202,17 @@ public class main_code
 		scan.nextLine();
 		
 		teachers.set(remove_teacherid, null);
-		
-		
 	}
 	
+	public static void remove_student()
+	{
+		System.out.println("ID# of student being removed: ");
+		int remove_studentid = scan.nextInt();
+		scan.nextLine();
+		
+		students.set(remove_studentid, null);
+	}
+
 	public static void process_update_student_teacher()
 	{
 		int update_menu_selection;
@@ -199,7 +227,7 @@ public class main_code
 			{
 			case 1: update_teacher();
 				break;
-			case 2: System.out.println("Update Student");
+			case 2: update_student();
 				break;
 			case 3: 
 				break;
@@ -213,11 +241,11 @@ public class main_code
 	public static int display_update_menu()
 	{
 		//Display Update Menu
-		System.out.println("----------Update Menu---------");
+		System.out.println("-----------------Update Menu-----------------");
 		System.out.println("1. Update Teacher");
 		System.out.println("2. Update Student");
 		System.out.println("3. Back to Main Menu");
-		System.out.println("-------------------");
+		System.out.println("---------------------------------------------");
 		System.out.println("Enter Selection");
 		int update_selection = scan.nextInt();
 		scan.nextLine();
@@ -250,44 +278,137 @@ public class main_code
 		
 		do
 		{
-			//Display Add Menu
+			//Display Update Teacher Menu
 			update_teacher_field_selection = display_update_teacher_field();
-			//Error Check Add Menu
+			//Error Update Teacher Menu
 			update_teacher_field_selection = update_teacher_field_menu_error_check(update_teacher_field_selection);
 		
 			switch(update_teacher_field_selection)
 			{
 			case 1 : 
-					teacher the_teacher = teachers.get(update_teacherid);
-					the_teacher.set_first_name(prompt_first_name());
+				teacher the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_first_name(prompt_first_name());
 				break;
-			case 2 : prompt_last_name();
+			case 2 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_last_name(prompt_last_name());
 				break;
-			case 3 : prompt_person_address();
+			case 3 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_address(prompt_person_address());
 				break;
-			case 4 : prompt_person_city();
+			case 4 : 
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_city(prompt_person_city());
 				break;
-			case 5 : prompt_person_state();
+			case 5 : 
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_state(prompt_person_state());
 				break;
-			case 6 : prompt_person_zipcode();
+			case 6 : 
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_zipcode(prompt_person_zipcode());
 				break;
-			case 7 : prompt_phone_number();
+			case 7 : 
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_phone_number(prompt_phone_number());
 				break;
 			case 8 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_gender(prompt_person_gender());
 				break;
 			case 9 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_ethnicity(prompt_person_ethnicity());
 				break;
 			case 10 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_age(prompt_person_age());
 				break;
 			case 11 :
+				the_teacher = teachers.get(update_teacherid);
+				the_teacher.set_person_grade(prompt_person_grade());
 				break;
 			case 12 :
 				break;
 			}
 			
-			teachers.set(update_teacherid, null);
 		}
 		while(update_teacher_field_selection != 12);
+		
+	}
+	
+	public static void update_student()
+	{
+		int update_student_field_selection;
+		
+		System.out.print("ID# of student being updated: ");
+		int update_studentid = scan.nextInt();
+		scan.nextLine();
+		
+		do
+		{
+			//Display Update Student Menu
+			update_student_field_selection = display_update_student_field();
+			//Error Update Student Menu
+			update_student_field_selection = update_student_field_menu_error_check(update_student_field_selection);
+		
+			switch(update_student_field_selection)
+			{
+			case 1 : 
+				student the_student = students.get(update_studentid);
+				the_student.set_first_name(prompt_first_name());
+				break;
+			case 2 :
+				the_student = students.get(update_studentid);
+				the_student.set_last_name(prompt_last_name());
+				break;
+			case 3 :
+				the_student = students.get(update_studentid);
+				the_student.set_person_address(prompt_person_address());
+				break;
+			case 4 : 
+				the_student = students.get(update_studentid);
+				the_student.set_person_city(prompt_person_city());
+				break;
+			case 5 : 
+				the_student = students.get(update_studentid);
+				the_student.set_person_state(prompt_person_state());
+				break;
+			case 6 : 
+				the_student = students.get(update_studentid);
+				the_student.set_person_zipcode(prompt_person_zipcode());
+				break;
+			case 7 : 
+				the_student = students.get(update_studentid);
+				the_student.set_phone_number(prompt_phone_number());
+				break;
+			case 8 :
+				the_student = students.get(update_studentid);
+				the_student.set_person_gender(prompt_person_gender());
+				break;
+			case 9 :
+				the_student = students.get(update_studentid);
+				the_student.set_person_ethnicity(prompt_person_ethnicity());
+				break;
+			case 10 :
+				the_student = students.get(update_studentid);
+				the_student.set_person_age(prompt_person_age());
+				break;
+			case 11 :
+				the_student = students.get(update_studentid);
+				the_student.set_person_grade(prompt_person_grade());
+				break;
+			case 12 :
+				the_student = students.get(update_studentid);
+				the_student.set_emergency_contact(prompt_emergency_contact());
+				break;
+			case 13 :
+				break;
+			}
+			
+		}
+		while(update_student_field_selection != 13);
 		
 	}
 	
@@ -318,9 +439,49 @@ public class main_code
 		return update_teacher_field_selection;
 	}
 	
+	public static int display_update_student_field()
+	{
+		//Display Update Student Field Menu
+		System.out.println("----------Update Student Menu---------");
+		System.out.println("1. First Name");
+		System.out.println("2. Last Name");
+		System.out.println("3. Street Address");
+		System.out.println("4. City");
+		System.out.println("5. State");
+		System.out.println("6. Zip Code");
+		System.out.println("7. Phone Number");
+		System.out.println("8. Gender");
+		System.out.println("9. Ethnicity");
+		System.out.println("10. Age");
+		System.out.println("11. Grade");
+		System.out.println("12. Emergency Contact");
+		System.out.println("13. Update a Different Teacher");
+		System.out.println("-------------------");
+		System.out.println("Enter Selection");
+		int update_student_field_selection = scan.nextInt();
+		scan.nextLine();
+		
+		update_student_field_selection = update_student_field_menu_error_check(update_student_field_selection);
+		
+		System.out.println("");
+		return update_student_field_selection;
+	}
+	
 	public static int update_teacher_field_menu_error_check(int x)
 	{//start...Update Menu Error Check
 		while (x < 1 || x > 12)
+		{
+			System.out.print("Error!!! Please enter a valid selection: ");
+			x = scan.nextInt();
+			scan.nextLine();
+		}
+		
+		return x;
+	}//end...Update Menu Error Check
+	
+	public static int update_student_field_menu_error_check(int x)
+	{//start...Update Menu Error Check
+		while (x < 1 || x > 13)
 		{
 			System.out.print("Error!!! Please enter a valid selection: ");
 			x = scan.nextInt();
@@ -344,7 +505,7 @@ public class main_code
 			{
 			case 1: display_teacher_info();
 				break;
-			case 2: System.out.print("Display Students");
+			case 2: display_student_info();
 				break;
 			case 3:
 				break;
@@ -400,11 +561,84 @@ public class main_code
 				System.out.println("Phone Number: \t" + teachers.get(j).get_phone_number());
 				System.out.println("Gender: \t" + teachers.get(j).get_person_gender());
 				System.out.println("Ethnicity: \t" + teachers.get(j).get_person_ethnicity());
-				System.out.println("Age: \t" + teachers.get(j).get_person_age());
-				System.out.println("Grade Teaches: \t" + teachers.get(j).get_person_grade());
+				System.out.println("Age: \t\t" + teachers.get(j).get_person_age());
+				System.out.println("Grade: \t" + teachers.get(j).get_person_grade());
 				System.out.println("Teacher ID#: \t" + j);
 				System.out.println("");
 			}	
+		}
+	}
+	
+	public static void display_student_info()
+	{
+
+		for(int j = 0; j < students.size(); j++)
+		{
+			 student a_student = students.get(j);
+			if (a_student != null)
+			{	
+				System.out.println("First Name: \t\t" + students.get(j).get_first_name());
+				System.out.println("Last Name: \t\t" + students.get(j).get_last_name());
+				System.out.println("Address: \t\t" + students.get(j).get_person_address());
+				System.out.println("\t\t\t" + students.get(j).get_person_city() + "," + students.get(j).get_person_state() + " " + students.get(j).get_person_zipcode());
+				System.out.println("Phone Number: \t\t" + students.get(j).get_phone_number());
+				System.out.println("Gender: \t\t" + students.get(j).get_person_gender());
+				System.out.println("Ethnicity: \t\t" + students.get(j).get_person_ethnicity());
+				System.out.println("Age: \t\t\t" + students.get(j).get_person_age());
+				System.out.println("Grade: \t\t\t" + students.get(j).get_person_grade());
+				System.out.println("Emergency Contact: \t" + students.get(j).get_emergency_contact());
+				System.out.println("Student ID#: \t\t" + j);
+				System.out.println("");
+			}	
+		}
+	}
+	
+	public static void process_display_teachers_grade()
+	{
+		System.out.print("Teachers for which Grade: ");
+		String grade_teachers = scan.nextLine();
+		
+		for (int k = 0; k < teachers.size(); k++)
+		{
+			if(grade_teachers.compareTo(teachers.get(k).get_person_grade()) == 0)
+			{
+				System.out.println("First Name: \t" + teachers.get(k).get_first_name());
+				System.out.println("Last Name: \t" + teachers.get(k).get_last_name());
+				System.out.println("Address: \t" + teachers.get(k).get_person_address());
+				System.out.println("\t\t" + teachers.get(k).get_person_city() + "," + teachers.get(k).get_person_state() + " " + teachers.get(k).get_person_zipcode());
+				System.out.println("Phone Number: \t" + teachers.get(k).get_phone_number());
+				System.out.println("Gender: \t" + teachers.get(k).get_person_gender());
+				System.out.println("Ethnicity: \t" + teachers.get(k).get_person_ethnicity());
+				System.out.println("Age: \t\t" + teachers.get(k).get_person_age());
+				System.out.println("Grade: \t" + teachers.get(k).get_person_grade());
+				System.out.println("Teacher ID#: \t" + k);
+				System.out.println("");
+			}
+		}
+	}
+
+	public static void process_display_students_grade()
+	{
+		System.out.print("Students for which Grade: ");
+		String grade_students = scan.nextLine();
+		
+		for (int k = 0; k < students.size(); k++)
+		{
+			if(grade_students.compareTo(students.get(k).get_person_grade()) == 0)
+			{
+				System.out.println("First Name: \t\t" + students.get(k).get_first_name());
+				System.out.println("Last Name: \t\t" + students.get(k).get_last_name());
+				System.out.println("Address: \t\t" + students.get(k).get_person_address());
+				System.out.println("\t\t\t" + students.get(k).get_person_city() + "," + students.get(k).get_person_state() + " " + students.get(k).get_person_zipcode());
+				System.out.println("Phone Number: \t\t" + students.get(k).get_phone_number());
+				System.out.println("Gender: \t\t" + students.get(k).get_person_gender());
+				System.out.println("Ethnicity: \t\t" + students.get(k).get_person_ethnicity());
+				System.out.println("Age: \t\t\t" + students.get(k).get_person_age());
+				System.out.println("Grade: \t\t\t" + students.get(k).get_person_grade());
+				System.out.println("Emergency Contact: \t" + students.get(k).get_emergency_contact());
+				System.out.println("Student ID#: \t\t" + k);
+				System.out.println("");
+			}
 		}
 	}
 	
@@ -488,6 +722,14 @@ public class main_code
 		return x;
 	}
 	
+	public static String prompt_emergency_contact()
+	{
+		String x;
+		System.out.print("Emergency Contact: ");
+		x = scan.nextLine();
+		return x;
+	}
+	
 	public static int prompt_person_age()
 	{
 		int x;
@@ -519,9 +761,9 @@ public class main_code
 				break;
 			case 4: process_display_info();
 				break;
-			case 5: System.out.println("Display which teachers teach which grade");
+			case 5: process_display_teachers_grade();
 				break;
-			case 6: System.out.println("Display students in a certain grade");
+			case 6: process_display_students_grade();
 				break;
 			case 0: System.out.println("Exiting Database");
 				break;
